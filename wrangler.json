@@ -1,0 +1,36 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "commerce-llms-txt-template",
+	"main": "./src/llms-txt-worker/index.ts",
+	"compatibility_date": "2025-10-08",
+	"compatibility_flags": ["nodejs_compat"],
+	"upload_source_maps": true,
+	"observability": {
+		"enabled": true
+	},
+	"assets": {
+		"directory": "./dist/client",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": ["/api", "/api/*", "/llms.txt", "/llms-full.txt"]
+	},
+	"ai": {
+		"binding": "AI"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "ENRICHMENT_CACHE",
+			"id": "c06ab6096f5146c19ec7d50905ba4511"
+		}
+	],
+	"vars": {
+		"MERCHANT_NAME": "My Store",
+		"MERCHANT_DESCRIPTION": "Product catalog powered by Commerce llms.txt",
+		"STORE_CURRENCY": "USD",
+		"SHIPPING_POLICY": "# Shipping Policy  **Last Updated: June 2026**  Thank you for shopping at MarwanShop.com. We are committed to delivering your orders quickly and securely. Please review our shipping policy below.  ## Order Processing  * Orders are processed within **1–3 business days** after payment confirmation. * Orders are not processed, shipped, or delivered on weekends or public holidays. * During periods of high order volume, processing times may be slightly delayed.  ## Shipping Methods & Delivery Times  Estimated delivery times vary depending on your location and selected shipping method:  ### United States  * Standard Shipping: **3–7 business days** * Expedited Shipping: **2–4 business days**  ### International Orders  * Standard International Shipping: **7–21 business days** * Delivery times may vary depending on customs clearance and local postal services.  ## Shipping Rates  Shipping charges are calculated at checkout based on:  * Delivery destination * Package weight and dimensions * Selected shipping method  Any",
+		"RETURN_POLICY": "# Return & Refund Policy  **Last Updated: June 2026**  Thank you for shopping at MarwanShop.com. Customer satisfaction is important to us. If you are not completely satisfied with your purchase, please review our return and refund policy below.  ## Return Eligibility  We accept returns within **30 days** of the delivery date.  To be eligible for a return, the item must:  * Be unused and in the same condition that you received it. * Be in its original packaging. * Include all accessories, manuals, and original components. * Be accompanied by proof of purchase or order confirmation.  ## Non-Returnable Items  The following items cannot be returned:  * Gift cards * Downloadable software or digital products * Personalized or custom-made products * Clearance or final sale items * Products marked as non-returnable  ## Return Process  To initiate a return, please contact our customer support team at:  **Email:** [support@marwanshop.com](mailto:support@marwanshop.com)  Please include:  * Order number * Product name * ",
+		"SHOPIFY_STORE_DOMAIN": "voltaratech-3.myshopify.com",
+		"MERCHANT_VERTICAL": "general retail",
+		"ENRICHMENT_CACHE_TTL": "3600",
+		"AI_MODEL": "@cf/google/gemma-4-26b-a4b-it"
+	}
+}
